@@ -6,30 +6,37 @@
 
 #include <iostream>
 
-void CalculateArea(float base, float height) {
-    // calculate area
-    float area;
+void CalculationOfArea(int base, int height) {
+    // This function calculates the area of the triangle
+    int area;
 
-    // process
+    // Process
     area = (base * height) / 2;
 
-    // output
-    std::cout << "The area of the triangle is " << area << "cm^2" << std::endl;
+    // Output
+    std::cout << "The area  is " << area << " cm²." << std::endl;
 }
 
+int main() {
+    // This function gets user input and call functions
+    std::string base_from_user;
+    std::string height_from_user;
+    int base;
+    int height;
 
-main() {
-    // this function gets base and height
-
-    int baseFromUser;
-    int heightFromUser;
-
-    // input
+    // Input
+    std::cout << "Enter the base length of a triangle (cm): ";
+    std::cin >> base_from_user;
+    std::cout << "Enter the height of a triangle (cm): ";
+    std::cin >> height_from_user;
+    std::cout << std::endl;
+    // try and catch
     try {
-       std::cout << "Enter the base of a rectangle (cm): ";
-       std::cin >> baseFromUser;
-       std::cout << "Enter the height of a rectangle (cm): ";
-       std::cin >> heightFromUser;
-    CalculateArea(baseFromUser, heightFromUser);
+        base = std::stoi(base_from_user);
+        height = std::stoi(height_from_user);
+        CalculationOfArea(base, height);
+    } catch (std::invalid_argument) {
+        std::cout << "Invalid Input." << std::endl;
     }
+    std::cout << "\nDone." << std::endl;
 }
